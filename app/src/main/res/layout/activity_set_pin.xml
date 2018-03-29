@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.prozekt.companion.setPIN">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:background="@drawable/bg_gradient" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/padding">
+
+        <TextView
+            android:id="@+id/setPinLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:labelFor="@id/confirmPin"
+            android:padding="@dimen/padding"
+            android:text="@string/setPinHint"
+            android:textAlignment="center" />
+
+        <EditText
+            android:id="@+id/setPin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/setPinLabel"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/bg_text"
+            android:drawablePadding="15dp"
+            android:ems="12"
+            android:inputType="numberPassword"
+            android:padding="16dp" />
+
+        <TextView
+            android:id="@+id/confirmPinLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/setPin"
+            android:labelFor="@id/setPin"
+            android:padding="@dimen/padding"
+            android:text="@string/confirmPinHint"
+            android:textAlignment="center" />
+
+        <EditText
+            android:id="@+id/confirmPin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/setPin"
+            android:layout_below="@+id/confirmPinLabel"
+            android:background="@drawable/bg_text"
+            android:drawablePadding="15dp"
+            android:ems="12"
+            android:inputType="numberPassword"
+            android:padding="16dp" />
+
+        <Button
+            android:id="@+id/savePin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true"
+            android:background="@drawable/bg_button"
+            android:drawablePadding="15dp"
+            android:padding="16dp"
+            android:text="@string/submit"
+            android:textColor="@android:color/white" />
+
+
+    </RelativeLayout>
+</LinearLayout>

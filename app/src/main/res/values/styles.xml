@@ -1,0 +1,18 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:fontFamily">sans-serif-condensed</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="actionBarStyle">@style/Theme.MyApp.ActionBar</item>
+    </style>
+
+    <style name="Theme.MyApp.ActionBar" parent="Widget.AppCompat.Light.ActionBar.Solid.Inverse">
+        <item name="elevation">4dp</item>
+        <!--<item name="android:background">#ff5e62</item>-->
+        <!--<item name="background">#ff5e62</item>-->
+    </style>
+</resources>
