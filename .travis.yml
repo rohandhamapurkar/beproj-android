@@ -43,7 +43,7 @@ cache:
 
 deploy:
   provider: releases
-  api_key: "6b3bd8f9b953c0db9a902b588c935c669479967c"
+  api_key: "fa5a9b2a2fde4d82a4fa75354d005128c4a4dd80"
   file: companion*release*.apk
   file_glob: 'true'
   skip_cleanup: true
