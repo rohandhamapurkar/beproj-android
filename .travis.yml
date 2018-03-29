@@ -41,15 +41,6 @@ cache:
   - "$HOME/.gradle/caches/"
   - "$HOME/.gradle/wrapper/"
 
-deploy:
-  provider: releases
-  user: "dhamapurkar54@gmail.com"
-  password: "Rrm78610"
-  file: companion*release*.apk
-  file_glob: "true"
-  skip_cleanup: true
-  on:
-    tags: true
 
 after_success:
 - sh set_tags.sh
