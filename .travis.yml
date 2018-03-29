@@ -32,12 +32,12 @@ before_deploy:
 deploy:
   provider: releases
   api_key: "fa5a9b2a2fde4d82a4fa75354d005128c4a4dd80"
-  file: $TRAVIS_BUILD_DIR/app/build/outputs/apk/release/*.apk
+  file: $TRAVIS_BUILD_DIR/app/build/outputs/apk/release/prozekt_companion_4.apk
+  file_glob: 'true'
   skip_cleanup: true
   on:
     branch: master
     repo: rohandhamapurkar/beproj-android
     #tags: true
 after_deploy:
-  - cd $TRAVIS_BUILD_DIR/app/build/outputs/apk/release; ls -l
   - rm -rf $TRAVIS_BUILD_DIR/app/build/outputs
