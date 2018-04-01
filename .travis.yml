@@ -34,6 +34,7 @@ deploy:
   api_key: "fa5a9b2a2fde4d82a4fa75354d005128c4a4dd80"
   file: $TRAVIS_BUILD_DIR/app/build/outputs/apk/release/prozekt_companion_4.apk
   file_glob: 'true'
+  name: Build $(date +'%d.%m.%Y %R')
   skip_cleanup: true
   on:
     branch: master
