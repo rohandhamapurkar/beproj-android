@@ -50,6 +50,6 @@ deploy:
     repo: rohandhamapurkar/beproj-android
     #tags: true
 after_deploy:
-  - ls $TRAVIS_BUILD_DIR/app/build/outputs/
+  - ls $TRAVIS_BUILD_DIR/app/build/outputs/apk/
   - rm -rf $TRAVIS_BUILD_DIR/app/build/outputs
   
