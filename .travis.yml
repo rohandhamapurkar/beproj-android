@@ -1,20 +1,37 @@
-language: android
 sudo: false
+language: android
 jdk: oraclejdk8
+
 android:
   components:
-  - tools
   - platform-tools
+  - tools
   - build-tools-27.0.3
   - android-27
   - android-22
-  - sys-img-armeabi-v7a-android-22
+  - extra-google-m2repository
   - extra-android-m2repository
-licenses:
-    - 'android-sdk-preview-license-52d11cd2'
-    - 'android-sdk-license-.+'
-    - 'google-gdk-license-.+'
-#script: if [[ "$TRAVIS_BRANCH" == "master" ]]; then ./gradlew clean :app:assembleRelease --stacktrace; else ./gradlew clean test --stacktrace; fi
+  - sys-img-armeabi-v7a-android-22
+  - sys-img-armeabi-v7a-android-27
+
+before_install:
+- chmod +x set_tags.sh
+- chmod +x gradlew
+
+before_script:
+- echo no | android create avd --force -n test -t android-22 --abi armeabi-v7a
+- emulator -avd test -no-skin -no-audio -no-window &
+- android-wait-for-emulator
+- adb shell input keyevent 82 &
+  
+script:
+- "./gradlew clean assembleDebug"
+
+notifications:
+  email: true
+
+before_cache:
+- rm -f $HOME/.gradle/caches/modules-2/modules-2.lock
 
 cache:
   directories:
@@ -22,20 +39,7 @@ cache:
   - "$HOME/.gradle"
   - "$HOME/.gradle/caches/"
   - "$HOME/.gradle/wrapper/"
-  
-before_cache:
-  - rm -f $HOME/.gradle/caches/modules-2/modules-2.lock
-  - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
-  
-before_script:
-  - echo no | android create avd --force -n test -t android-22 --abi armeabi-v7a
-  - emulator -avd test -no-skin -no-audio -no-window &
-  - android-wait-for-emulator
-  - adb shell input keyevent 82 &
-script: "./gradlew clean assembleDebug"
-before_install:
-- chmod +x gradlew
-- yes | sdkmanager "platforms;android-27"
+
 before_deploy:
   - git tag -f "travis-build"
 deploy:
@@ -52,4 +56,3 @@ deploy:
 after_deploy:
   - ls $TRAVIS_BUILD_DIR/app/build/outputs/apk/debug/
   - rm -rf $TRAVIS_BUILD_DIR/app/build/outputs
-  
